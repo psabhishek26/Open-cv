@@ -11,6 +11,12 @@ print("[!] Press 'q' to exit")
 # ref xml
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_alt.xml")
 
+# YT Url Generator
+def genUrl(result):
+    url = "https://www.youtube.com/results?search_query=" + result + "+mood+songs"
+    print("[#] Openning " + url)
+    webbrowser.open_new(url)
+
 #Webcam
 video=cv2.VideoCapture(0)
 
@@ -46,15 +52,7 @@ while video.isOpened:
         if key==ord('q'):
             break
         elif key==ord('y'):
-            genUrl()
+            genUrl(result)
             break
             
     video.release()
-    
-# YT Url Generator
-def genUrl():
-    url = ("https://www.youtube.com/results?search_query=" + result + "+mood+songs")
-    print("[#] Openning " + url)
-    webbrowser.open_new(url)
-    
-    
